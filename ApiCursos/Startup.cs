@@ -1,3 +1,4 @@
+using ApiCursos.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,8 @@ namespace ApiCursos
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiCursos", Version = "v1" });
             });
+
+            services.AddTransient<ITurmaService, TurmaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
